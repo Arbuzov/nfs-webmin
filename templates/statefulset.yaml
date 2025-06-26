@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nfs-webmin
+spec:
+  serviceName: nfs-webmin
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nfs-webmin
+  template:
+    metadata:
+      labels:
+        app: nfs-webmin
+    spec:
+      containers:
+        - name: nfs
+          image: {{ .Values.nfs.image }}
+          securityContext:
+            privileged: true
+          env:
+            - name: SHARED_DIRECTORY
+              value: {{ .Values.nfs.sharedDirectory }}
+          ports:
+            - containerPort: 2049
+            - containerPort: 111
+          volumeMounts:
+            - name: nfs-data
+              mountPath: {{ .Values.nfs.sharedDirectory }}
+        - name: webmin
+          image: {{ .Values.webmin.image }}
+          env:
+            - name: ROOT_PASSWORD
+              value: {{ .Values.webmin.rootPassword }}
+          ports:
+            - containerPort: 10000
+          volumeMounts:
+            - name: nfs-data
+              mountPath: {{ .Values.nfs.sharedDirectory }}
+      volumes:
+        - name: nfs-data
+          hostPath:
+            path: {{ .Values.nfs.hostDataPath }}
+            type: DirectoryOrCreate

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webmin-service
+spec:
+  selector:
+    app: nfs-webmin
+  ports:
+    - name: webmin
+      port: 10000
+      targetPort: 10000
+  type: NodePort
