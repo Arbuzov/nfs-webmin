@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  nfs-webmin:
+  - apiVersion: v2
+    created: "2025-06-27T19:24:07.185726349Z"
+    description: NFS Server + Webmin (admin UI)
+    digest: eee68f7250452577bf0c427a03e5155495dd74bfb8e689b04d495ffb3882542f
+    name: nfs-webmin
+    urls:
+    - nfs-webmin-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-06-27T19:24:07.184518384Z"
+
