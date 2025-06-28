@@ -8,3 +8,4 @@ webmin:
   rootPassword: secret
 
 resources: {}
+nodeSelector: {}
