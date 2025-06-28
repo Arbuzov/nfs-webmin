@@ -17,11 +17,11 @@ Usage: {{ include "nfs-webmin.fullname" (dict "context" . "suffix" "-nfs") }}
 {{- printf "%s%s" $ctx.Values.fullnameOverride $suffix | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
 {{- $name := default $ctx.Chart.Name $ctx.Values.nameOverride -}}
-{{- if and (eq $ctx.Release.Name "nfs") (hasPrefix "nfs-" $name) -}}
-{{- printf "%s%s" $name $suffix | trunc 63 | trimSuffix "-" -}}
-{{- else -}}
-{{- printf "%s-%s%s" $ctx.Release.Name $name $suffix | trunc 63 | trimSuffix "-" -}}
+{{- $fullname := printf "%s-%s%s" $ctx.Release.Name $name $suffix -}}
+{{- if eq $ctx.Release.Name "nfs" -}}
+{{- $fullname = trimPrefix "nfs-" $fullname -}}
 {{- end -}}
+{{- $fullname | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 {{- end -}}
 
