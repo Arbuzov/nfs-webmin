@@ -1,17 +1,19 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: nfs-webmin
+  name: {{ include "nfs-webmin.fullname" . }}
+  labels:
+    {{- include "nfs-webmin.labels" . | nindent 4 }}
 spec:
-  serviceName: nfs-webmin
+  serviceName: {{ include "nfs-webmin.fullname" . }}
   replicas: 1
   selector:
     matchLabels:
-      app: nfs-webmin
+      {{- include "nfs-webmin.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: nfs-webmin
+        {{- include "nfs-webmin.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.nodeSelector }}
       nodeSelector:
