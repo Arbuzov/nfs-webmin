@@ -13,10 +13,12 @@ charts.
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | nfs.hostDataPath | string | `"/mnt/nfs-test"` |  |
-| nfs.image | string | `"itsthenetwork/nfs-server-alpine:latest"` |  |
+| nfs.image | string | `"itsthenetwork/nfs-server-alpine"` |  |
+| nfs.tag | string | `"latest"` |  |
 | nfs.sharedDirectory | string | `"/data"` |  |
 | resources | object | `{}` |  |
 | nodeSelector | object | `{}` | Node selector labels |
-| webmin.image | string | `"sameersbn/webmin:latest"` |  |
+| webmin.image | string | `"sameersbn/webmin"` |  |
+| webmin.tag | string | `"latest"` |  |
 | webmin.rootPassword | string | `"secret"` |  |
 
