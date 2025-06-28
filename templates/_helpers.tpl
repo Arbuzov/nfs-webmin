@@ -5,12 +5,19 @@ Common helm helper templates
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
+{{- /*
+"nfs-webmin.fullname" helper
+Accepts an optional suffix argument.
+Usage: {{ include "nfs-webmin.fullname" (dict "context" . "suffix" "-nfs") }}
+*/ -}}
 {{- define "nfs-webmin.fullname" -}}
-{{- if .Values.fullnameOverride -}}
-{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" -}}
+{{- $ctx := .context | default . -}}
+{{- $suffix := .suffix | default "" -}}
+{{- if $ctx.Values.fullnameOverride -}}
+{{- printf "%s%s" $ctx.Values.fullnameOverride $suffix | trunc 63 | trimSuffix "-" -}}
 {{- else -}}
-{{- $name := default .Chart.Name .Values.nameOverride -}}
-{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
+{{- $name := default $ctx.Chart.Name $ctx.Values.nameOverride -}}
+{{- printf "%s-%s%s" $ctx.Release.Name $name $suffix | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 {{- end -}}
 
