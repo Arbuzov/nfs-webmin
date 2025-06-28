@@ -2,11 +2,19 @@ apiVersion: v1
 entries:
   nfs-webmin:
   - apiVersion: v2
-    created: "2025-06-27T21:39:32.591492951Z"
+    created: "2025-06-28T12:11:15.468233619Z"
+    description: NFS Server + Webmin (admin UI)
+    digest: c6bcff38abb8af2996b8324a80f2d849cc451348107f5b1bd2c2dcb402031412
+    name: nfs-webmin
+    urls:
+    - https://arbuzov.github.io/nfs-webmin/nfs-webmin-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    created: "2025-06-28T12:11:15.46705345Z"
     description: NFS Server + Webmin (admin UI)
     digest: d59d6331363592b58548eb8d324b63834826eecfb02fa9ae5bf69b7c1d5df165
     name: nfs-webmin
     urls:
     - https://arbuzov.github.io/nfs-webmin/nfs-webmin-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-27T21:39:32.590193848Z"
+generated: "2025-06-28T12:11:15.465720113Z"
