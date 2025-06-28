@@ -21,7 +21,7 @@ spec:
       {{- end }}
       containers:
         - name: nfs
-          image: {{ .Values.nfs.image }}
+          image: {{ printf "%s:%s" .Values.nfs.image (.Values.nfs.tag | default "latest") }}
           securityContext:
             privileged: true
           env:
@@ -34,7 +34,7 @@ spec:
             - name: nfs-data
               mountPath: {{ .Values.nfs.sharedDirectory }}
         - name: webmin
-          image: {{ .Values.webmin.image }}
+          image: {{ printf "%s:%s" .Values.webmin.image (.Values.webmin.tag | default "latest") }}
           env:
             - name: ROOT_PASSWORD
               value: {{ .Values.webmin.rootPassword }}
