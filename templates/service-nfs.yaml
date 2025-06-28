@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nfs-service
+  name: {{ include "nfs-webmin.fullname" . }}-nfs
+  labels:
+    {{- include "nfs-webmin.labels" . | nindent 4 }}
 spec:
   selector:
-    app: nfs-webmin
+    {{- include "nfs-webmin.selectorLabels" . | nindent 4 }}
   ports:
     - name: nfs
       port: 2049

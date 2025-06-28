@@ -4,6 +4,10 @@
 
 NFS Server + Webmin (admin UI)
 
+This chart generates resource names and labels dynamically using the Helm release
+name. Labels follow the `app.kubernetes.io/*` conventions similar to Bitnami
+charts.
+
 ## Values
 
 | Key | Type | Default | Description |
