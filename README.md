@@ -1,6 +1,6 @@
 # nfs-webmin
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/nfs-webmin)](https://artifacthub.io/packages/search?repo=nfs-webmin)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/nfs-webmin)](https://artifacthub.io/packages/search?repo=nfs-webmin)
 
 NFS Server + Webmin (admin UI)
 
@@ -32,10 +32,12 @@ webmin:
 | nfs.image | string | `"jgrojasx/webmin"` |  |
 | nfs.tag | string | `"latest"` |  |
 | nfs.sharedDirectory | string | `"/data"` |  |
+| nfs.extraEnvVars | list | `[]` | Additional environment variables for the NFS container |
 | webmin.enabled | bool | `true` | Enable Webmin container |
 | webmin.image | string | `"rook/nfs"` |  |
 | webmin.tag | string | `"v1.7.3-4.gf94ea44"` |  |
 | webmin.rootPassword | string | `"secret"` |  |
+| webmin.extraEnvVars | list | `[]` | Additional environment variables for the Webmin container |
 | resources | object | `{}` |  |
 | nodeSelector | object | `{}` | Node selector labels |
 
