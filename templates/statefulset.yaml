@@ -38,6 +38,15 @@ spec:
           env:
             - name: ROOT_PASSWORD
               value: {{ .Values.webmin.rootPassword }}
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - |
+                    cd /usr/share/webmin
+                    ls | grep -v exports | xargs -I{} mv {} {}.disabled
           ports:
             - containerPort: 10000
           volumeMounts:
