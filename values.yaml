@@ -1,10 +1,12 @@
 nfs:
+  enabled: true
   image: jgrojasx/webmin
   tag: latest
   sharedDirectory: /data
   hostDataPath: /mnt/nfs-test
 
 webmin:
+  enabled: true
   image: openebs/nfs-server-alpine
   tag: latest
 
