@@ -1,0 +1,16 @@
+{{- if .Values.nginx.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "nfs-webmin.fullname" . }}-nginx
+  labels:
+    {{- include "nfs-webmin.labels" . | nindent 4 }}
+spec:
+  selector:
+    {{- include "nfs-webmin.selectorLabels" . | nindent 4 }}
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  type: NodePort
+{{- end }}

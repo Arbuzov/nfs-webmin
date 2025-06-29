@@ -12,5 +12,11 @@ webmin:
   tag: latest
   extraEnvVars: []
 
+nginx:
+  enabled: true
+  image: nginx
+  tag: latest
+  extraEnvVars: []
+
 resources: {}
 nodeSelector: {}
