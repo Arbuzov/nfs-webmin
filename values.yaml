@@ -1,12 +1,12 @@
 nfs:
-  image: itsthenetwork/nfs-server-alpine
+  image: jgrojasx/webmin
   tag: latest
   sharedDirectory: /data
-  hostDataPath: /mnt/nfs-test   # Укажи путь на хосте
+  hostDataPath: /mnt/nfs-test
 
 webmin:
-  image: sameersbn/webmin
-  tag: latest
+  image: rook/nfs
+  tag: v1.7.3-4.gf94ea44
   rootPassword: secret
 
 resources: {}
