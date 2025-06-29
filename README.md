@@ -1,6 +1,6 @@
 # nfs-webmin
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/nfs-webmin)](https://artifacthub.io/packages/search?repo=nfs-webmin)
+![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/nfs-webmin)](https://artifacthub.io/packages/search?repo=nfs-webmin)
 
 NFS Server + Webmin (admin UI)
 
@@ -27,13 +27,15 @@ webmin:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| nfs.enabled | bool | `true` | Enable NFS container |
 | nfs.hostDataPath | string | `"/mnt/nfs-test"` |  |
-| nfs.image | string | `"itsthenetwork/nfs-server-alpine"` |  |
+| nfs.image | string | `"jgrojasx/webmin"` |  |
 | nfs.tag | string | `"latest"` |  |
 | nfs.sharedDirectory | string | `"/data"` |  |
+| webmin.enabled | bool | `true` | Enable Webmin container |
+| webmin.image | string | `"rook/nfs"` |  |
+| webmin.tag | string | `"v1.7.3-4.gf94ea44"` |  |
+| webmin.rootPassword | string | `"secret"` |  |
 | resources | object | `{}` |  |
 | nodeSelector | object | `{}` | Node selector labels |
-| webmin.image | string | `"sameersbn/webmin"` |  |
-| webmin.tag | string | `"latest"` |  |
-| webmin.rootPassword | string | `"secret"` |  |
 

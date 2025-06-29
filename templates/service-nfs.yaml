@@ -1,3 +1,4 @@
+{{- if .Values.nfs.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -15,3 +16,4 @@ spec:
       port: 111
       targetPort: 111
   type: NodePort   # Для удобного теста на minikube/kind/standalone
+{{- end }}
