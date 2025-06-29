@@ -28,9 +28,9 @@ spec:
           env:
             - name: SHARED_DIRECTORY
               value: {{ .Values.nfs.sharedDirectory }}
-            {{- with .Values.nfs.extraEnvVars }}
-            {{ toYaml . | indent 12 }}
-            {{- end }}
+          {{- with .Values.nfs.extraEnvVars -}}
+            {{ toYaml . | nindent 12 }}
+          {{- end }}
           ports:
             - containerPort: 2049
             - containerPort: 111
@@ -42,10 +42,8 @@ spec:
         - name: webmin
           image: {{ printf "%s:%s" .Values.webmin.image (.Values.webmin.tag | default "latest") }}
           env:
-            - name: ROOT_PASSWORD
-              value: {{ .Values.webmin.rootPassword }}
-            {{- with .Values.webmin.extraEnvVars }}
-            {{ toYaml . | indent 12 }}
+            {{- with .Values.webmin.extraEnvVars -}}
+            {{ toYaml . | nindent 12 }}
             {{- end }}
           lifecycle:
             postStart:

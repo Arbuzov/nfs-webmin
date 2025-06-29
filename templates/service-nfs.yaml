@@ -15,5 +15,5 @@ spec:
     - name: rpcbind
       port: 111
       targetPort: 111
-  type: NodePort   # Для удобного теста на minikube/kind/standalone
+  type: NodePort
 {{- end }}
