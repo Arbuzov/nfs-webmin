@@ -20,6 +20,7 @@ spec:
 {{ toYaml . | indent 8 }}
       {{- end }}
       containers:
+        {{- if .Values.nfs.enabled }}
         - name: nfs
           image: {{ printf "%s:%s" .Values.nfs.image (.Values.nfs.tag | default "latest") }}
           securityContext:
@@ -33,6 +34,8 @@ spec:
           volumeMounts:
             - name: nfs-data
               mountPath: {{ .Values.nfs.sharedDirectory }}
+        {{- end }}
+        {{- if .Values.webmin.enabled }}
         - name: webmin
           image: {{ printf "%s:%s" .Values.webmin.image (.Values.webmin.tag | default "latest") }}
           env:
@@ -52,6 +55,7 @@ spec:
           volumeMounts:
             - name: nfs-data
               mountPath: {{ .Values.nfs.sharedDirectory }}
+        {{- end }}
       volumes:
         - name: nfs-data
           hostPath:
