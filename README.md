@@ -1,6 +1,6 @@
 # nfs-webmin
 
-![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/nfs-webmin)](https://artifacthub.io/packages/search?repo=nfs-webmin)
+![Version: 0.2.3](https://img.shields.io/badge/Version-0.2.3-informational?style=flat-square) [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/nfs-webmin)](https://artifacthub.io/packages/search?repo=nfs-webmin)
 
 NFS Server + Webmin (admin UI)
 
@@ -38,6 +38,10 @@ webmin:
 | webmin.tag | string | `"v1.7.3-4.gf94ea44"` |  |
 | webmin.rootPassword | string | `"secret"` |  |
 | webmin.extraEnvVars | list | `[]` | Additional environment variables for the Webmin container |
+| nginx.enabled | bool | `true` | Enable nginx container |
+| nginx.image | string | `"nginx"` |  |
+| nginx.tag | string | `"latest"` |  |
+| nginx.extraEnvVars | list | `[]` | Additional environment variables for the nginx container |
 | resources | object | `{}` |  |
 | nodeSelector | object | `{}` | Node selector labels |
 

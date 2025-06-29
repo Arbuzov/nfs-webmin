@@ -1,4 +1,4 @@
 apiVersion: v2
 name: nfs-webmin
-version: 0.2.2
+version: 0.2.3
 description: NFS Server + Webmin (admin UI)
