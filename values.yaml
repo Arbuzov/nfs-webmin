@@ -4,11 +4,13 @@ nfs:
   tag: latest
   sharedDirectory: /data
   hostDataPath: /mnt/nfs-test
+  extraEnvVars: []
 
 webmin:
   enabled: true
   image: openebs/nfs-server-alpine
   tag: latest
+  extraEnvVars: []
 
 resources: {}
 nodeSelector: {}
