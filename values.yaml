@@ -5,9 +5,8 @@ nfs:
   hostDataPath: /mnt/nfs-test
 
 webmin:
-  image: rook/nfs
-  tag: v1.7.3-4.gf94ea44
-  rootPassword: secret
+  image: openebs/nfs-server-alpine
+  tag: latest
 
 resources: {}
 nodeSelector: {}
