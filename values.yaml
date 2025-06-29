@@ -4,12 +4,14 @@ nfs:
   tag: latest
   sharedDirectory: /data
   hostDataPath: /mnt/nfs-test
+  extraEnvVars: []
 
 webmin:
   enabled: true
   image: rook/nfs
   tag: v1.7.3-4.gf94ea44
   rootPassword: secret
+  extraEnvVars: []
 
 resources: {}
 nodeSelector: {}
